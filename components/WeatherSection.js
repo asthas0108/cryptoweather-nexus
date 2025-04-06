@@ -32,12 +32,14 @@ export default function WeatherSection() {
                   <p>Temp: {cityData.main.temp}°C</p>
                   <p>Humidity: {cityData.main.humidity}%</p>
                   <p>Condition: {cityData.weather[0].description}</p>
-                  <Link href={`/city/${city}`}>
+                  {/* <Link href={`/city/${city}`}> */}
+                  <Link href={`/city/${city.toLowerCase().replace(/\s+/g, "-")}`}>
+
                     <p className="text-blue-600 hover:underline">View Details</p>
                   </Link>
 
                   <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-semibold">{city.name}</h3>
+                    <h3 className="text-xl font-semibold"></h3>
                     <FavoriteButton name={city} type="city" />
                   </div>
                 </>
