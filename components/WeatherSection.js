@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../store/weatherSlice";
-import FavoriteButton from "./FavoriteButton";
+import FavoritesButton from "./FavoritesButton";
 import Link from "next/link";
 
 const cities = ["New York", "London", "Tokyo"];
@@ -40,7 +40,7 @@ export default function WeatherSection() {
 
                   <div className="flex justify-between items-center">
                     <h3 className="text-xl font-semibold"></h3>
-                    <FavoriteButton name={city} type="city" />
+                    <FavoritesButton name={city} type="city" item={city} />
                   </div>
                 </>
               ) : (

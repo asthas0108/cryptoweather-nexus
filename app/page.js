@@ -5,6 +5,7 @@ import CryptoSection from "../components/CryptoSection";
 import NewsSection from "../components/NewsSection";
 import RealTimeAlerts from "@/components/RealTimeAlerts";
 import useWeatherAlerts from "@/hooks/useWeatherAlerts";
+import FavoritesSection from "@/components/FavoriteSection";
 
 export default function HomePage() {
   useCryptoSocket();
@@ -17,6 +18,8 @@ export default function HomePage() {
       <CryptoSection /> 
       <NewsSection />
       <RealTimeAlerts /> 
+      <FavoritesSection />
+
     </main>
   );
 }

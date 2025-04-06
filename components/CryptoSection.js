@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCrypto } from "../store/cryptoSlice";
-import FavoriteButton from "./FavoriteButton";
+import FavoritesButton from "./FavoritesButton";
 import Link from "next/link";
 
 export default function CryptoSection() {
@@ -38,7 +38,7 @@ export default function CryptoSection() {
 
             <div className="flex justify-between items-center">
               <h3 className="text-xl font-semibold"></h3>
-              <FavoriteButton name={coin.id} type="crypto" />
+              <FavoritesButton item={coin.id} name={coin.id} type="crypto" />
             </div>
 
           </div>
