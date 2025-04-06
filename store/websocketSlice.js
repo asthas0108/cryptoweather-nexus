@@ -38,3 +38,50 @@ const websocketSlice = createSlice({
 
 export const { updatePrice, clearAlerts } = websocketSlice.actions;
 export default websocketSlice.reducer;
+
+// import { createSlice } from "@reduxjs/toolkit";
+
+// const websocketSlice = createSlice({
+//   name: "websocket",
+//   initialState: {
+//     prices: {
+//       bitcoin: null,
+//       ethereum: null,
+//     },
+//     previousPrices: {},
+//     alerts: [],
+//   },
+//   reducers: {
+//     updatePrice: (state, action) => {
+//       const { asset, price } = action.payload;
+//       const prev = state.prices[asset];
+
+//       if (prev !== null) {
+//         const diff = ((price - prev) / prev) * 100;
+//         if (Math.abs(diff) > 0.5) {
+//           state.alerts.push({
+//             type: "price_alert",
+//             asset,
+//             diff: diff.toFixed(2),
+//             newPrice: price.toFixed(2),
+//             timestamp: Date.now(),
+//           });
+
+//           if (state.alerts.length > 10) {
+//             state.alerts.shift();
+//           }
+//         }
+
+//         state.previousPrices[asset] = prev;
+//       }
+
+//       state.prices[asset] = price;
+//     },
+//     clearAlerts: (state) => {
+//       state.alerts = [];
+//     },
+//   },
+// });
+
+// export const { updatePrice, clearAlerts } = websocketSlice.actions;
+// export default websocketSlice.reducer;
