@@ -4,9 +4,11 @@ import WeatherSection from "../components/WeatherSection";
 import CryptoSection from "../components/CryptoSection";
 import NewsSection from "../components/NewsSection";
 import RealTimeAlerts from "@/components/RealTimeAlerts";
+import useWeatherAlerts from "@/hooks/useWeatherAlerts";
 
 export default function HomePage() {
   useCryptoSocket();
+  useWeatherAlerts();
   return (
     <main className="p-4 space-y-8 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold text-center mb-8">CryptoWeather Nexus 🌤️💰</h1>

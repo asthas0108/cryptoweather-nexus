@@ -108,6 +108,7 @@ export default function useCryptoSocket() {
           toast.success(`🔥 ${coin.toUpperCase()} is now $${Number(price).toFixed(2)}`, {
             icon: "💸",
             duration: 4000,
+            position: "bottom-right",
             style: {
               borderRadius: "8px",
               background: "#333",

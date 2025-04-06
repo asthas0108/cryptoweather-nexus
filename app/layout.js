@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
       <body>
         <Provider store={store}>
           {children}
-          <Toaster position="bottom-right" />
+          <Toaster  />
         </Provider>
         
       </body>
