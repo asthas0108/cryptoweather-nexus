@@ -108,6 +108,11 @@ export default function useCryptoSocket() {
           toast.success(`🔥 ${coin.toUpperCase()} is now $${Number(price).toFixed(2)}`, {
             icon: "💸",
             duration: 4000,
+            style: {
+              borderRadius: "8px",
+              background: "#333",
+              color: "#fff",
+            },
           });
         });
       } catch (err) {
@@ -115,10 +120,10 @@ export default function useCryptoSocket() {
       }
     };
 
-    ws.current.onerror = (event) => {
-      console.error("❌ WebSocket error event:", event);
-      toast.error("WebSocket connection error");
-    };
+    // ws.current.onerror = (event) => {
+    //   console.error("❌ WebSocket error event:", event);
+    //   toast.error("WebSocket connection error");
+    // };
 
     ws.current.onclose = (event) => {
       console.warn(
