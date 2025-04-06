@@ -15,4 +15,11 @@ const store = configureStore({
   },
 });
 
+store.subscribe(() => {
+  const { favorites } = store.getState();
+  if (typeof window !== "undefined") {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }
+});
+
 export default store;

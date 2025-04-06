@@ -1,7 +1,23 @@
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loadFavoritesFromStorage } from "../store/favoritesSlice";
 
 const FavoritesSection = () => {
+    const dispatch = useDispatch();
+    const [isClient, setIsClient] = useState(false);
   const { cities, cryptos } = useSelector((state) => state.favorites);
+
+  useEffect(() => {
+    // Only runs on client
+    const favorites = localStorage.getItem("favorites");
+    if (favorites) {
+      dispatch(loadFavoritesFromStorage(JSON.parse(favorites)));
+    }
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
 
   return (
     <div className="p-4 bg-white shadow-md rounded mt-6">

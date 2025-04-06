@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// add persisting feature
+const savedFavorites = typeof window !== "undefined"
+  ? JSON.parse(localStorage.getItem("favorites")) || { cities: [], cryptos: [] }
+  : { cities: [], cryptos: [] };
+
+
 const favoritesSlice = createSlice({
   name: "favorites",
-  initialState: {
-    cities: [],
-    cryptos: [],
-  },
+  initialState: savedFavorites,
   reducers: {
     toggleFavoriteCity: (state, action) => {
       const city = action.payload;
@@ -23,8 +26,15 @@ const favoritesSlice = createSlice({
         state.cryptos.push(crypto);
       }
     },
+    loadFavoritesFromStorage: (state, action) => {
+      return action.payload;
+    },
+    clearFavorites: (state) => {
+      state.cities = [];
+      state.cryptos = [];
+    }
   },
 });
 
-export const { toggleFavoriteCity, toggleFavoriteCrypto } = favoritesSlice.actions;
+export const { toggleFavoriteCity, toggleFavoriteCrypto, loadFavoritesFromStorage, clearFavorites } = favoritesSlice.actions;
 export default favoritesSlice.reducer;
