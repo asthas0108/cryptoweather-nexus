@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCrypto } from "../store/cryptoSlice";
 import FavoriteButton from "./FavoriteButton";
+import Link from "next/link";
 
 export default function CryptoSection() {
   const dispatch = useDispatch();
@@ -29,8 +30,14 @@ export default function CryptoSection() {
               </span>
             </p>
             <p>Market Cap: ${coin.market_cap.toLocaleString()}</p>
+
+            <Link href={`/crypto/${coin.id}`}>
+              <p className="text-blue-600 hover:underline">View Details</p>
+            </Link>
+
+
             <div className="flex justify-between items-center">
-              <h3 className="text-xl font-semibold">{crypto.name}</h3>
+              <h3 className="text-xl font-semibold"></h3>
               <FavoriteButton name={coin.id} type="crypto" />
             </div>
 
