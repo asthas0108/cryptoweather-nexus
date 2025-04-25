@@ -9,7 +9,7 @@ export default function useCryptoPrice() {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/crypto-prices");
+        const res = await axios.get("https://cryptoweather-nexus-br1l.onrender.com/api/crypto-prices");
         const prices = res.data;
 
         Object.entries(prices).forEach(([name, value]) => {
